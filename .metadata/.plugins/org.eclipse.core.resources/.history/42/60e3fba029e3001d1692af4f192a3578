@@ -1,0 +1,53 @@
+package com.kuebiko.controller;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.kuebiko.service.AccountService;
+
+@Controller
+public class AccountsController {
+	
+	@Autowired
+	private AccountService accountService;
+
+	@GetMapping("createAccount")
+	public String showAccount() {
+		return "createAccount";
+	}
+	
+	
+	@PostMapping("createAccount")
+	public String createAccount(@ModelAttribute AccountDTO accountDTO,Model model) {
+		//Creating date of entry
+		accountDTO.setDoe(new Timestamp(new Date().getTime()));
+		accountService.create(accountDTO);
+		model.addAttribute("message", "Account is created successfully.");
+		return "createAccount";
+	}
+	
+	@GetMapping("showAccounts")
+	public String showAccounts(Model model) {
+		List<AccountDTO> accountDTOs=accountService.findAll();
+		//Setting  data inside request scope
+		model.addAttribute("accountDTOs",accountDTOs);
+		return "showAccounts";
+	}
+	
+	@GetMapping("deleteAccount")
+	public String deleteAccount(@RequestParam int aid,Model model) {
+		accountService.deleteByAid(aid);
+		List<AccountDTO> accountDTOs=accountService.findAll();
+		model.addAttribute("accountDTOs",accountDTOs);
+		return "showAccounts";
+	}
+}

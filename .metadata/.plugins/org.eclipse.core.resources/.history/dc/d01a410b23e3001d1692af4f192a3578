@@ -1,0 +1,5 @@
+package com.kuebiko.sevice;
+
+public class AccountService {
+
+}

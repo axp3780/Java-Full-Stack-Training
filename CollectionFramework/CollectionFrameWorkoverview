@@ -1,0 +1,17 @@
+ "Collection" is an interface in the Java Collections Framework that defines
+ a group of objects known as elements and provides a common set of methods for 
+ working with collections of objects, 
+ 
+ while "Collections" is a class in the Java Collections Framework that provides 
+ utility methods for working with collections, such as sorting, searching, and shuffling.      
+                
+                
+                
+                
+                
+                 Collection Framework
+        
+     List					Set 				Map
+     -	ArrayList 			-Hash set			-HashMap
+     -Linked List			-LinkedHash set     -LinkedHash Map
+     - vector				-Tree set			-TreeMap 			

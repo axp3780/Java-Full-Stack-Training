@@ -1,0 +1,5 @@
+package com.kuebiko.controller;
+
+public class MainBoot {
+
+}
