@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kuebiko.dao.AccountEntity;
+import com.kuebiko.dto.AccountDTO;
 import com.kuebiko.sevice.AccountService;
 
 @Controller
@@ -22,18 +22,18 @@ public class AccountsController {
 	private AccountService accountService;
 	
 	
-	@GetMapping("createAccount")
+	@GetMapping({"/login","/"})
 	public String showAccount() {
-		return "createAccount";
+		return "login";
 	}
 	
 	
 	
 	
 	@PostMapping("createAccount")
-	public String createAccount(@ModelAttribute AccountEntity accountEntity, Model model) {
-		accountEntity.setDateOfEntry(new Timestamp(new Date().getTime()));
-		accountService.save(accountEntity);
+	public String createAccount(@ModelAttribute AccountDTO accountDTO, Model model) {
+		accountDTO.setDateOfEntry(new Timestamp(new Date().getTime()));
+		accountService.saveOrUpdateData(accountDTO);
 		model.addAttribute("message", "Data has been stored.");
 		return "createAccount";
 
@@ -41,31 +41,31 @@ public class AccountsController {
 	
 	@GetMapping("showAccounts")
 	public String showAccounts(Model model) {
-		List<AccountEntity> accountEntities=accountService.fetchData();
-		model.addAttribute("accountEntities", accountEntities);
+		List<AccountDTO> accountDTOs=accountService.fetchData();
+		model.addAttribute("accountDTOs", accountDTOs);
 		return "showAccounts";
 	}
 	
 	@GetMapping("deleteAccount")
 	public String deleteAccount(@RequestParam int aid,Model model) {
 		accountService.deleteByAccountID(aid);
-		List<AccountEntity> accountEntities=accountService.fetchData();
-		model.addAttribute("accountEntities",accountEntities);
+		List<AccountDTO> accountDTOs=accountService.fetchData();
+		model.addAttribute("accountDTOs",accountDTOs);
 		return "showAccounts";
 	}
 	
 	//edit for EDIT
 	@GetMapping("/editAccount")
 	public String showEditSignup(@RequestParam int aid, Model model) {
-		AccountEntity accountEntity = accountService.findByAccountID(aid);
-	    model.addAttribute("accountEntity", accountEntity);
+		AccountDTO accountDTO = accountService.findByAccountID(aid);
+	    model.addAttribute("accountDTO", accountDTO);
 	    return "editAccount"; // editsignup.jsp
 	}
 	
 	@PostMapping("/updateAccount")
-	public String updateSignupPost(@ModelAttribute AccountEntity accountEntity, Model model) {
-		accountService.updateData(accountEntity);
-		List<AccountEntity>   dtos=accountService.fetchData();
+	public String updateSignupPost(@ModelAttribute AccountDTO accountDTO, Model model) {
+		accountService.saveOrUpdateData(accountDTO);
+		List<AccountDTO>   dtos=accountService.fetchData();
 		  model.addAttribute("accountDTOs", dtos);
 		return "showAccounts"; // showAccounts.jsp
 	}

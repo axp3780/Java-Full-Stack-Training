@@ -1,4 +1,4 @@
-package com.kuebiko.controller;
+package com.kuebiko.dto;
 
 import java.sql.Timestamp;
 

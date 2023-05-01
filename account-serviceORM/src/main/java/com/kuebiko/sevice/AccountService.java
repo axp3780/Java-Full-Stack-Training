@@ -1,17 +1,15 @@
 package com.kuebiko.sevice;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.kuebiko.controller.AccountDTO;
 import com.kuebiko.dao.AccountEntity;
 import com.kuebiko.dao.AccountRepository;
+import com.kuebiko.dto.AccountDTO;
 
 @Service
 public class AccountService {
@@ -28,7 +26,12 @@ public class AccountService {
 		//jdbcTemplate.update(sql,data);
 	//}
 	
-	public void save(AccountEntity accountEntity) {
+	public void saveOrUpdateData(AccountDTO accountDTO) {
+		
+		//Dao is taking account Entity not DTO
+		//so we use instance of AccountEntity
+		AccountEntity accountEntity = new AccountEntity();
+		BeanUtils.copyProperties(accountDTO, accountEntity); //class of BeanUtils from spring lets you copy the data from source to target
 		accountRepository.save(accountEntity);
 	}
 	
@@ -37,24 +40,30 @@ public class AccountService {
 	}
 	
 	
-	public List<AccountEntity> fetchData () {
+	public List<AccountDTO> fetchData () {
+		
 		List<AccountEntity> accountEntities= accountRepository.findAll();
-		return accountEntities;
+		List<AccountDTO>accountDTOs = new  ArrayList<>();
+		for(AccountEntity entity: accountEntities) {
+			
+			AccountDTO accountDTO = new AccountDTO();
+			BeanUtils.copyProperties(entity, accountDTO);
+			accountDTOs.add(accountDTO);
+			
+		}
+		return accountDTOs;
 	
 	}
 	
 	
 	
-	  public AccountEntity findByAccountID(int accountId) { 
-		  AccountEntity accountEntities= accountRepository.findById(accountId).get();
-		  return accountEntities;
+	  public AccountDTO findByAccountID(int accountId) { 
+		  AccountEntity entity= accountRepository.findById(accountId).get();
+		  AccountDTO accountDTO = new AccountDTO();
+		  BeanUtils.copyProperties(entity, accountDTO);
+		  return accountDTO;
 		  
 	  }
 	 
-
-	public void updateData(AccountEntity accountEntity) {
-		accountRepository.save(accountEntity);
-		
-	}
 
 }

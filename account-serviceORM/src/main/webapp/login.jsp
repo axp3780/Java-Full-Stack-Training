@@ -46,7 +46,7 @@
 				<button type= "submit" class = "btn btn-primary">Login</button>
 				<button type="reset" class= "btn btn-danger">Clear</button>
 				<br><br>
-				<a href="signUp.html"><button type ="button" class = "btn btn-success">Sign Up</button></a>
+				<a href="createAccount.jsp"><button type ="button" class = "btn btn-success">Sign Up</button></a>
 			</form>
 		</div>
 	</div>

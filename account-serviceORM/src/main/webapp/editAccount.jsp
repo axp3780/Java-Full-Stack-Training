@@ -19,10 +19,10 @@
   		<div style="width: 50%">
   		
   	<form action="updateAccount" method="post">
-  			<label>AccountID :</label> 
-  		     <input type="hidden" name="accountId"  class="form-control" value ="${accountEntity.accountId}" readonly="readonly">
+  			
+  		     <input type="hidden" name="accountId"  class="form-control" value ="${accountDTO.accountId}" readonly="readonly">
   		     <label>Name :</label> 
-  		     <input type="text" name="name"  class="form-control" value ="${accountEntity.name}" >
+  		     <input type="text" name="name"  class="form-control" value ="${accountDTO.name}" >
   		     
   		      <label>Type :</label> 
   		     <select  name="type"  class="form-control">
@@ -31,12 +31,12 @@
   		           <option>Credit Account</option>
   		     </select>
   		      <label>Email :</label> 
-  		     <input type="email" name="email"  class="form-control" value ="${accountEntity.email}">
+  		     <input type="email" name="email"  class="form-control" value ="${accountDTO.email}">
   		      <label>Description :</label> 
-  		     <input type="text" name="description"  class="form-control"value ="${accountEntity.description}">
+  		     <input type="text" name="description"  class="form-control"value ="${accountDTO.description}">
   		     
   		      <label>Balance :</label> 
-  		     <input type="number" name="balance"  class="form-control"value ="${accountEntity.balance}">
+  		     <input type="number" name="balance"  class="form-control"value ="${accountDTO.balance}">
   		     <br/>
   		     <button type="submit"  class="btn btn-primary">Update Account</button>
   		     <button type="reset" class="btn btn-primary"> Clear Form</button>

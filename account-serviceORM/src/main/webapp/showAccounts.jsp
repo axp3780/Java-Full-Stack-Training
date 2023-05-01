@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+<%@page import="com.kuebiko.dto.AccountDTO"%>
 <%@page import="com.kuebiko.dao.AccountEntity"%>
 <%@page import="com.mysql.cj.DataStoreMetadata"%>
-<%@page import="com.kuebiko.controller.AccountDTO"%>
 <%@page import="java.util.List"%>
 <html>
 <head>
@@ -74,23 +74,23 @@ tr:nth-child(even) {
   </tr>
  	<tbody>
   <%
-  List<AccountEntity> accountEntities=(List<AccountEntity> )request.getAttribute("accountEntities");
+  List<AccountDTO> accountDTOs=(List<AccountDTO> )request.getAttribute("accountDTOs");
 
-	  for (AccountEntity accountEntity: accountEntities){
+	  for (AccountDTO accountDTO: accountDTOs){
 
   %>
   
    <tr>
-    	<td><%=accountEntity.getName()%></td>
-  		<td><%=accountEntity.getType()%></td>
-  		<td><b><%=accountEntity.getEmail()%></b></td>
-  		<td><%=accountEntity.getDescription()%></td>
-  		<td><%=accountEntity.getBalance()%></td>
+    	<td><%=accountDTO.getName()%></td>
+  		<td><%=accountDTO.getType()%></td>
+  		<td><b><%=accountDTO.getEmail()%></b></td>
+  		<td><%=accountDTO.getDescription()%></td>
+  		<td><%=accountDTO.getBalance()%></td>
   		<td>
-  		<a href = "deleteAccount?aid=<%=accountEntity.getAccountId()%>">
+  		<a href = "deleteAccount?aid=<%=accountDTO.getAccountId()%>">
   		 <button type ="button" class ="btun"><i class="fa fa-trash"></i></button>
   		 </a>
-  		 <a href = "editAccount?aid=<%=accountEntity.getAccountId()%>">
+  		 <a href = "editAccount?aid=<%=accountDTO.getAccountId()%>">
   		 <button type ="button" class ="btun">EDIT<i class="fa fa-pen"></i></button>
   		 </a>
   		 </td>
