@@ -5,6 +5,8 @@ C:\Users\paraj\Desktop\Class Kubeko Workspace\.metadata\.plugins\org.eclipse.jst
 \firstSpringBootProjrct-mvc-web\src\main\java
 C:\Users\paraj\Desktop\Class Kubeko Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2588049222.index
 \account-service\src\main\java
+C:\Users\paraj\Desktop\Class Kubeko Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\529041551.index
+\rest-cubic-03052023\src\main\java
 C:\Users\paraj\Desktop\Class Kubeko Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1488874314.index
 \account-serviceORM\src\main\java
 C:\Users\paraj\Desktop\Class Kubeko Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2898775472.index

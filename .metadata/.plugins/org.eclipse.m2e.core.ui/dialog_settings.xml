@@ -43,14 +43,16 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.kuebiko"/>
+			<item value="jpt1"/>
 			<item value="jpt"/>
+			<item value="com.kuebiko"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="account-service"/>
+			<item value="jpt1"/>
 			<item value="jpt"/>
+			<item value="account-service"/>
 			<item value="acccount-service"/>
 		</list>
 		<list key="projectNameTemplate">

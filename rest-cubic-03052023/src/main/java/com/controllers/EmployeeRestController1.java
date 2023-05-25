@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dto.EmployeeDTO;
 import com.entity.EmployeeEntity;
 import com.response.ResponseDTO;
 import com.services.EmployeeService;
@@ -41,12 +42,11 @@ public class EmployeeRestController1 {
 	}
 	
 	@PostMapping("/employees")
-	ResponseDTO doRegistration(@RequestBody EmployeeEntity employeeEntity) {
+	ResponseDTO doRegistration(@RequestBody EmployeeDTO employeeDTO) {
 
 		// System.out.println(employeeEntity);
 
-		employeeService.saveEmployee(employeeEntity);
-		
+		employeeService.saveEmployee(employeeDTO);
 		ResponseDTO responseDTO=new ResponseDTO();
 		responseDTO.setMessage("registration done successfully");
 		responseDTO.setStatus(201);

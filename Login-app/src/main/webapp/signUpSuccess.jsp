@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<%@page import="com.cubic.SignupDTO"%>
 <%@page import="com.cubic.DataStore"%>
-<%@page import="com.cubic.AccountDTO"%>
 <%@page import="java.util.List"%>
 <html>
 <head>
@@ -73,9 +73,9 @@ tr:nth-child(even) {
   </tr>
  	<tbody>
   <%
-  List<AccountDTO> AccountDTOs = DataStore.getAccountDTOs();
+  List<SignupDTO> signupDTOs = DataStore.getSignupDTOs();
 
-	  for (AccountDTO AccountDTO: AccountDTOs){
+	  for (SignupDTO AccountDTO: signupDTOs){
 
   %>
    <tr>

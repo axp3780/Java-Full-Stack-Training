@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dto.EmployeeDTO;
 import com.entity.EmployeeEntity;
 import com.services.EmployeeService;
 
@@ -27,11 +28,11 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/register")
-	String doRegistration(@ModelAttribute EmployeeEntity employeeEntity) {
+	String doRegistration(@ModelAttribute EmployeeDTO employeeDTO) {
 
 		// System.out.println(employeeEntity);
 
-		employeeService.saveEmployee(employeeEntity);
+		employeeService.saveEmployee(employeeDTO);
 
 		return "registration";
 

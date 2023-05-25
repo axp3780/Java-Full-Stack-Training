@@ -3,11 +3,13 @@ package com.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.EmployeeDao;
+import com.dto.EmployeeDTO;
 //import com.dao.EmployeeDao;
 import com.entity.EmployeeEntity;
 
@@ -22,7 +24,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 	
 	@Override
-	public void saveEmployee(EmployeeEntity employeeEntity) {		
+	public void saveEmployee(EmployeeDTO employeeDTO) {	
+		EmployeeEntity employeeEntity = new EmployeeEntity();
+		BeanUtils.copyProperties(employeeDTO, employeeEntity);
 		employeeDao.save(employeeEntity);//It is not mandatory to mention this save() in repository(dao interface as it is inbuilt method)			
 		
 	}
