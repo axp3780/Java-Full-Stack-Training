@@ -1,0 +1,43 @@
+
+<!-- this is interpolation binding/ getting the data from ts file to html
+<h1>{{extra}}</h1>
+<h1>{{data}}</h1>
+<br>
+this is event binding
+<button (click)="add(100,10)">Add</button>&nbsp;
+<button (click)="multiply(100,10)">Multiply</button>&nbsp;
+<button (click)="test('Arjun')">TestData</button>&nbsp;
+<div>{{sum}}</div>&nbsp;
+<div>{{resultMult}}</div>&nbsp;
+<div>{{myString}}</div>&nbsp; 
+
+
+<form>
+  <input type="number" [(ngModel)]="n1" name="n1"><br>
+  <input type="number" [(ngModel)]="n2" name="n2"><br>
+  <button (click)="addInputValue()">AddInputValue</button>
+  <div>{{addedValue }}</div>&nbsp;
+</form>
+
+<h2>Using the Directives to print data from TS file</h2>
+
+-->
+<br><br><br>
+<div class="container">
+<form>
+<label style="color:Red">Username</label>&nbsp;&nbsp;
+<input type="text" [(ngModel)]="Username" name="Username"><br><br>
+<label style="color:red ">Password</label>&nbsp;&nbsp;
+<input type="text" [(ngModel)]="Password" name="Password"><br><br>
+<button type="submit"  class="btn btn-primary" (click)="showData()">Login</button>
+</form></div>
+
+
+
+
+
+<div class="container">
+<a routerLink="/login">link to login page using routing</a><br>
+<a routerLink="/employeeComponent">EmployeeComponent Page</a><br>
+<a routerLink="/registrationComponent">RegistrationComponent Page</a>
+</div>

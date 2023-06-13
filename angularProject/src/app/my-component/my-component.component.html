@@ -1,1 +1,19 @@
-<p>my-component works!</p>
+<!-- <p style="margin: 5%;" >{{status}}</p> -->
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let std of students">
+        <td [ngClass]="{'colorClass': std.id === 1}">{{std.id}}</td>
+        <td [ngStyle]="{'color': std.name ? 'red':'green'}">{{std.name}}</td>
+        <td [ngStyle]="{'color': std.email  === 'arjun@gmail.com' ? 'green': 'blue'}">{{std.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

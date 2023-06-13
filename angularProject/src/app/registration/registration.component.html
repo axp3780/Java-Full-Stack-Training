@@ -1,0 +1,16 @@
+<br><br><br>
+<div class="container">
+    {{message}}
+<form>
+<label style="color:Red">Employee Name</label>&nbsp;&nbsp;
+<input type="text" [(ngModel)]="employeeDTO.employeeName" name="employeeName" class="form-control" style="width:40%" ><br>
+<label style="color:red ">Salary</label>&nbsp;&nbsp;
+<input type="number" [(ngModel)]="employeeDTO.salary" name="salary" class="form-control" style="width:40%"><br>
+<label style="color:red ">Email ID</label>&nbsp;&nbsp;
+<input type="text" [(ngModel)]="employeeDTO.emailId" name="emailId" class="form-control" style="width:40%"><br>
+<label style="color:red ">Password</label>&nbsp;&nbsp;
+<input type="text" [(ngModel)]="employeeDTO.password" name="password" class="form-control" style="width:40%"><br>
+<button type="submit"  class="btn btn-primary" (click)="postData()">Register</button>
+
+<a routerLink="/employeeComponent">Check if data is regstered</a><br>
+</form></div>

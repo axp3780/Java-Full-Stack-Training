@@ -1,40 +1,9 @@
 
-<!--this is interpolation binding/ getting the data from ts file to html-->
-<h1>{{extra}}</h1>
-<h1>{{data}}</h1>
-<br>
-<!--this is event binding-->
-<button (click)="add(100,10)">Add</button>&nbsp;
-<button (click)="multiply(100,10)">Multiply</button>&nbsp;
-<button (click)="test('Arjun')">TestData</button>&nbsp;
-<div>{{sum}}</div>&nbsp;
-<div>{{resultMult}}</div>&nbsp;
-<div>{{myString}}</div>&nbsp;
+<router-outlet></router-outlet>
 
 
-<form>
-  <input type ="number" [(ngModel)] = "n1" name="n1"><br>
-  <input type ="number" [(ngModel)] = "n2" name="n2"><br>
-  <button (click) = "addInputValue()">AddInputValue</button>
-  <div>{{addedValue }}</div>&nbsp;
-</form>
-
-<h2>Using the Directives to print data from TS file</h2>
-<div class="container">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = "let std of students">
-      <td>{{std.id}}</td>
-      <td [ngStyle]="{'color': std.name ? 'red':'green'}">{{std.name}}</td>
-      <td [ngStyle]="{'color': std.email  === 'arjun@gmail.com' ? 'green': 'blue'}">{{std.email}}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<!--my-component is the child component of app component
+this is why we are able to use my-component on app-component-->
+<!--
+<app-my-component></app-my-component>
+-->

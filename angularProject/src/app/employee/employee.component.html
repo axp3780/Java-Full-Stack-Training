@@ -1,0 +1,33 @@
+
+<br><br><div class ="container">
+    <h3>This is Employee Component Page!!!</h3>
+<button type="submit"  class="btn btn-primary" (click)="getData()">GetData</button>
+</div>
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>EmployeeID</th>
+          <th>Employee Name</th>
+          <th>Email ID </th>
+          <th>Password</th>
+          <th>Salary</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employeeList">
+          <td>{{emp.employeeId}}</td>
+          <td>{{emp.employeeName}}</td>
+          <td>{{emp.emailId}}</td>
+          <td>{{emp.password}}</td>
+          <td>{{emp.salary}}</td>
+          <td><button class="btn btn-danger"> Delete </button> &nbsp;  <button class="btn btn-primary"> Update </button></td>
+          <!-- <td [ngStyle]="{'color': std.name ? 'red':'green'}">{{std.name}}</td>
+          <td [ngStyle]="{'color': std.email  === 'arjun@gmail.com' ? 'green': 'blue'}">{{std.email}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <a routerLink="/registrationComponent">Register more data here!</a>
+  </div>
